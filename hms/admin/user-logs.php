@@ -76,11 +76,11 @@ check_login();
 											</tr>
 										</thead>
 										<tbody>
-<?php
-$sql=mysqli_query($con,"select * from userlog ");
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
+                                          <?php
+                                  $sql=mysqli_query($con,"select * from userlog ");
+                                            $cnt=1;
+                                       while($row=mysqli_fetch_array($sql))
+                                           {
 ?>
 
 											<tr>

@@ -4,30 +4,33 @@ error_reporting(0);
 include("include/config.php");
 if(isset($_POST['submit']))
 {
-$ret=mysqli_query($con,"SELECT * FROM users WHERE email='".$_POST['username']."' and password='".md5($_POST['password'])."'");
+//Verificar si exicte usuario	
+$ret=mysqli_query($con,"SELECT * FROM users WHERE email='".$_POST['usuario']."' and password='".md5($_POST['password'])."'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
+
 $extra="dashboard.php";//
-$_SESSION['login']=$_POST['username'];
+$_SESSION['login']=$_POST['usuario'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
-// For stroing log if user login successfull
-$log=mysqli_query($con,"insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')");
+
+// Para almacenar el registro si el inicio de sesión del usuario es exitoso
+$log=mysqli_query($con,"insert into userlog(uid,usuario,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')");
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
 }
 else
 {
-	// For stroing log if user login unsuccessfull
-$_SESSION['login']=$_POST['username'];	
+	// Para almacenar el registro si el inicio de sesión del usuario no tuvo éxito
+$_SESSION['login']=$_POST['usuario'];	
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
-mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
-$_SESSION['errmsg']="Invalid username or password";
+mysqli_query($con,"insert into userlog(usuario,userip,status) values('".$_SESSION['login']."','$uip','$status')");
+$_SESSION['errmsg']="Invalid usuario or password";
 $extra="user-login.php";
 $host  = $_SERVER['HTTP_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
@@ -39,7 +42,7 @@ exit();
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<title>User-Login</title>
 		
@@ -73,7 +76,7 @@ exit();
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="text" class="form-control" name="username" placeholder="Username">
+									<input type="text" class="form-control" name="usuario" placeholder="Username">
 									<i class="fa fa-user"></i> </span>
 							</div>
 							<div class="form-group form-actions">

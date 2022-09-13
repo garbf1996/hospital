@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Hospital Management System</title>
+		<title>Sistema de gestión hospitalaria</title>
 		
 		<link rel="stylesheet" href="style.css"> 
 		<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
@@ -29,7 +29,7 @@
 				<div class="wrap">
 				<!--start-logo-->
 				<div class="logo">
-					<a href="index.html" style="font-size: 30px;">Hospital Management system</a>
+					<a href="index.html" style="font-size: 30px;">Sistema de gestión hospitalaria</a>
 				</div>
 				<!--end-logo-->
 				<!--start-top-nav-->
