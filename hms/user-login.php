@@ -68,10 +68,10 @@ exit();
 					<form class="form-login" method="post">
 						<fieldset>
 							<legend>
-								Sign in to your account
+							Iniciar sesión en su cuenta
 							</legend>
 							<p>
-								Please enter your name and password to log in.<br />
+							Por favor ingrese su nombre y contraseña para iniciar sesión.<br />
 								<span style="color:red;"><?php echo $_SESSION['errmsg']; ?><?php echo $_SESSION['errmsg']="";?></span>
 							</p>
 							<div class="form-group">
@@ -84,26 +84,26 @@ exit();
 									<input type="password" class="form-control password" name="password" placeholder="Password">
 									<i class="fa fa-lock"></i>
 									 </span><a href="forgot-password.php">
-									Forgot Password ?
+									 Has olvidado tu contraseña ?
 								</a>
 							</div>
 							<div class="form-actions">
 								
 								<button type="submit" class="btn btn-primary pull-right" name="submit">
-									Login <i class="fa fa-arrow-circle-right"></i>
+								Acceso <i class="fa fa-arrow-circle-right"></i>
 								</button>
 							</div>
 							<div class="new-account">
-								Don't have an account yet?
+							¿Aún no tienes una cuenta?
 								<a href="registration.php">
-									Create an account
+								Crea una cuenta
 								</a>
 							</div>
 						</fieldset>
 					</form>
 
 					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>Reservados todos los derechos</span>
 					</div>
 			
 				</div>

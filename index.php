@@ -35,9 +35,9 @@
 				<!--start-top-nav-->
 				<div class="top-nav">
 					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
+						<li class="active"><a href="index.html">Inicio</a></li>
 						
-						<li><a href="contact.php">contact</a></li>
+						<li><a href="contact.php">contacto</a></li>
 					</ul>					
 				</div>
 				<div class="clear"> </div>

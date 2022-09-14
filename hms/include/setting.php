@@ -3,12 +3,12 @@
 					<i class="fa fa-spin fa-gear"></i>
 				</button>
 				<div class="panel-heading">
-					Style Selector
+				Selector de estilo
 				</div>
 				<div class="panel-body">
 					<!-- start: FIXED HEADER -->
 					<div class="setting-box clearfix">
-						<span class="setting-title pull-left"> Fixed header</span>
+						<span class="setting-title pull-left"> Encabezado fijo</span>
 						<span class="setting-switch pull-right">
 							<input type="checkbox" class="js-switch" id="fixed-header" />
 						</span>
@@ -16,7 +16,7 @@
 					<!-- end: FIXED HEADER -->
 					<!-- start: FIXED SIDEBAR -->
 					<div class="setting-box clearfix">
-						<span class="setting-title pull-left">Fixed sidebar</span>
+						<span class="setting-title pull-left">Barra lateral fija</span>
 						<span class="setting-switch pull-right">
 							<input type="checkbox" class="js-switch" id="fixed-sidebar" />
 						</span>
@@ -24,7 +24,7 @@
 					<!-- end: FIXED SIDEBAR -->
 					<!-- start: CLOSED SIDEBAR -->
 					<div class="setting-box clearfix">
-						<span class="setting-title pull-left">Closed sidebar</span>
+						<span class="setting-title pull-left">Lateral cerrado</span>
 						<span class="setting-switch pull-right">
 							<input type="checkbox" class="js-switch" id="closed-sidebar" />
 						</span>
@@ -32,7 +32,7 @@
 					<!-- end: CLOSED SIDEBAR -->
 					<!-- start: FIXED FOOTER -->
 					<div class="setting-box clearfix">
-						<span class="setting-title pull-left">Fixed footer</span>
+						<span class="setting-title pull-left">Pie de página fijo</span>
 						<span class="setting-switch pull-right">
 							<input type="checkbox" class="js-switch" id="fixed-footer" />
 						</span>

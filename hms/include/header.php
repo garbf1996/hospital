@@ -12,7 +12,7 @@
 							<i class="ti-align-justify"></i>
 						</a>
 						<a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
+							<span class="sr-only">Navegación de palanca</span>
 							<i class="ti-view-grid"></i>
 						</a>
 					</div>
@@ -22,7 +22,7 @@
 						<ul class="nav navbar-right">
 							<!-- start: MESSAGES DROPDOWN -->
 								<li  style="padding-top:2% ">
-								<h2>Hospital Management System</h2>
+								<h2>Sistema de gestión hospitalaria</h2>
 							</li>
 						
 						
@@ -32,28 +32,28 @@
 
 
 
-									<?php $query=mysqli_query($con,"select fullName from users where id='".$_SESSION['id']."'");
+									<?php $query=mysqli_query($con,"select nombre_completo from users where id='".$_SESSION['id']."'");
 while($row=mysqli_fetch_array($query))
 {
-	echo $row['fullName'];
+	echo $row['nombre_completo'];
 }
 									?> <i class="ti-angle-down"></i></i></span>
 								</a>
 								<ul class="dropdown-menu dropdown-dark">
 									<li>
 										<a href="edit-profile.php">
-											My Profile
+										Mi perfil
 										</a>
 									</li>
 								
 									<li>
 										<a href="change-password.php">
-											Change Password
+										Cambia la contraseña
 										</a>
 									</li>
 									<li>
-										<a href="logout.php">
-											Log Out
+										<a href="user-login.php">
+										Cerrar sesión
 										</a>
 									</li>
 								</ul>

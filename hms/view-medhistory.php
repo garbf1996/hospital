@@ -15,14 +15,15 @@ if(isset($_POST['submit']))
    $pres=$_POST['pres'];
    
  
-      $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+      $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,Presion_arterial,Azucar_sangre,Peso,temperatura,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
     if ($query) {
-    echo '<script>alert("Medicle history has been added.")</script>';
+
+    echo '<script>alert(".Se ha añadido el historial médico.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
   }
   else
     {
-      echo '<script>alert("Something Went Wrong. Please try again")</script>';
+      echo '<script>alert("Algo salió mal. Inténtalo de nuevo")</script>';
     }
 
   
@@ -30,9 +31,9 @@ if(isset($_POST['submit']))
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
-		<title>Users | Medical History</title>
+		<title>Usuarios | Historial médico</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -60,14 +61,14 @@ if(isset($_POST['submit']))
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Users | Medical History</h1>
+<h1 class="mainTitle">Usuario | Historial médico</h1>
 </div>
 <ol class="breadcrumb">
 <li>
-<span>Users</span>
+<span>Usuario</span>
 </li>
 <li class="active">
-<span>Medical History</span>
+<span>Historial médico</span>
 </li>
 </ol>
 </div>

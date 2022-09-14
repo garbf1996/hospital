@@ -14,7 +14,7 @@ if($query)
 {
 	//Validar si el Usuario exicte
 	echo "<script>alert('Registrado exitosamente. Puedes iniciar sesión ahora');</script>";
-	//header('location:user-login.php');
+	header('location:user-login.php');
 }
 }
 ?>

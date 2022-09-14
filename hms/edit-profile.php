@@ -6,15 +6,15 @@ include('include/checklogin.php');
 check_login();
 if(isset($_POST['submit']))
 {
-	$fname=$_POST['fname'];
-$address=$_POST['address'];
-$city=$_POST['city'];
-$gender=$_POST['gender'];
+$nombre=$_POST['nombre_completo'];
+$dirrecion=$_POST['dirrecion'];
+$ciudad=$_POST['ciudad'];
+$sexo=$_POST['sexo'];
 
-$sql=mysqli_query($con,"Update users set fullName='$fname',address='$address',city='$city',gender='$gender' where id='".$_SESSION['id']."'");
+$sql=mysqli_query($con,"Update users set nombre_completo='$nombre',dirrecion='$dirrecion',ciudad='$ciudad',sexo='$sexo' where id='".$_SESSION['id']."'");
 if($sql)
 {
-$msg="Your Profile updated Successfully";
+$msg="Tu perfil actualizado con éxito";
 
 
 }
@@ -57,14 +57,14 @@ $msg="Your Profile updated Successfully";
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">User | Edit Profile</h1>
+									<h1 class="mainTitle">Usuario | Editar perfil</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>User </span>
+										<span>Usuario </span>
 									</li>
 									<li class="active">
-										<span>Edit Profile</span>
+										<span>Editar perfil</span>
 									</li>
 								</ol>
 							</div>
@@ -80,7 +80,7 @@ $msg="Your Profile updated Successfully";
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Edit Profile</h5>
+													<h5 class="panel-title">Editar perfil</h5>
 												</div>
 												<div class="panel-body">
 									<?php 
@@ -88,45 +88,41 @@ $sql=mysqli_query($con,"select * from users where id='".$_SESSION['id']."'");
 while($data=mysqli_fetch_array($sql))
 {
 ?>
-<h4><?php echo htmlentities($data['fullName']);?>'s Profile</h4>
-<p><b>Profile Reg. Date: </b><?php echo htmlentities($data['regDate']);?></p>
-<?php if($data['updationDate']){?>
-<p><b>Profile Last Updation Date: </b><?php echo htmlentities($data['updationDate']);?></p>
-<?php } ?>
-<hr />													<form role="form" name="edit" method="post">
+<h4><?php echo htmlentities($data['nombre_completo']);?>' s perfil</h4>
+													<form role="form" name="edit" method="post">
 													
 
 <div class="form-group">
 															<label for="fname">
-																 User Name
+															Nombre de usuario
 															</label>
-	<input type="text" name="fname" class="form-control" value="<?php echo htmlentities($data['fullName']);?>" >
+	<input type="text" name="nombre_completo" class="form-control" value="<?php echo htmlentities($data['nombre_completo']);?>" >
 														</div>
 
 
 <div class="form-group">
-															<label for="address">
-																 Address
+															<label for="dirrecion">
+															Dirección
 															</label>
-					<textarea name="address" class="form-control"><?php echo htmlentities($data['address']);?></textarea>
+					<textarea name="dirrecion" class="form-control"><?php echo htmlentities($data['dirrecion']);?></textarea>
 														</div>
 <div class="form-group">
-															<label for="city">
-																 City
+															<label for="Ciudad">
+															Ciudad
 															</label>
-		<input type="text" name="city" class="form-control" required="required"  value="<?php echo htmlentities($data['city']);?>" >
+		<input type="text" name="ciudad" class="form-control" required="required"  value="<?php echo htmlentities($data['ciudad']);?>" >
 														</div>
 	
 <div class="form-group">
-									<label for="gender">
-																Gender
+									<label for="sexo">
+																Sexo
 															</label>
 
-<select name="gender" class="form-control" required="required" >
-<option value="<?php echo htmlentities($data['gender']);?>"><?php echo htmlentities($data['gender']);?></option>
-<option value="male">Male</option>	
-<option value="female">Female</option>	
-<option value="other">Other</option>	
+<select name="sexo" class="form-control" required="required" >
+<option value="<?php echo htmlentities($data['sexo']);?>"><?php echo htmlentities($data['sexo']);?></option>
+<option value="Masculino">Masculino</option>	
+<option value="femenino">femenino</option>	
+<option value="otro">otro</option>	
 </select>
 
 														</div>
@@ -136,7 +132,7 @@ while($data=mysqli_fetch_array($sql))
 																 User Email
 															</label>
 					<input type="email" name="uemail" class="form-control"  readonly="readonly"  value="<?php echo htmlentities($data['email']);?>">
-					<a href="change-emaild.php">Update your email id</a>
+					<a href="change-emaild.php">Actualice su identificación de correo electrónico</a>
 														</div>
 
 
@@ -146,7 +142,7 @@ while($data=mysqli_fetch_array($sql))
 														
 														
 														<button type="submit" name="submit" class="btn btn-o btn-primary">
-															Update
+														Actualizar
 														</button>
 													</form>
 													<?php } ?>
