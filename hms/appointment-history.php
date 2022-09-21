@@ -71,9 +71,9 @@ if(isset($_GET['cancel']))
 											<tr>
 												<th class="center">#</th>
 												<th class="hidden-xs">Nombre del médico</th>
-												<th>Specialization</th>
+												<th>Especializacion</th>
 												<th>Cuota de consultoría</th>
-												<th>ACita Fecha / Hora</th>
+												<th>Cita Fecha / Hora</th>
 												<th>Fecha de creación de la cita  </th>
 												<th>Estado actual</th>
 												<th>Acción</th>

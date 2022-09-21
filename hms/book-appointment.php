@@ -109,7 +109,7 @@ function getfee(val) {
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Book Appointment</h5>
+													<h5 class="panel-title">Reservar una cita</h5>
 												</div>
 												<div class="panel-body">
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg1']);?>
@@ -120,10 +120,10 @@ function getfee(val) {
 
 <div class="form-group">
 															<label for="doctorEspecializacion">
-																Doctor Specialization
+																Doctor especializacion"
 															</label>
 							<select name="doctorEspecializacion" class="form-control" onChange="getdoctor(this.value);" required="required">
-																<option value="">Select Specialization</option>
+																<option value="">Select especializacion</option>
 <?php $ret=mysqli_query($con,"select * from doctorspecilization");
 while($row=mysqli_fetch_array($ret))
 {
@@ -141,10 +141,10 @@ while($row=mysqli_fetch_array($ret))
 
 														<div class="form-group">
 															<label for="doctor">
-																Doctors
+															Doctor
 															</label>
 						<select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="required">
-						<option value="">Select Doctor</option>
+						<option value="">Seleccionar doctor</option>
 						</select>
 														</div>
 
