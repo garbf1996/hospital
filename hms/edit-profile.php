@@ -88,7 +88,7 @@ $sql=mysqli_query($con,"select * from users where id='".$_SESSION['id']."'");
 while($data=mysqli_fetch_array($sql))
 {
 ?>
-<h4><?php echo htmlentities($data['nombre_completo']);?>' s perfil</h4>
+
 													<form role="form" name="edit" method="post">
 													
 
