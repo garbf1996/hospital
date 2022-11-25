@@ -6,17 +6,17 @@ include('include/checklogin.php');
 check_login();
 
 if(isset($_POST['submit']))
-{	$docspecialization=$_POST['Doctorspecialization'];
-$docname=$_POST['docname'];
-$docaddress=$_POST['clinicaddress'];
-$docfees=$_POST['docfees'];
-$doccontactno=$_POST['doccontact'];
-$docemail=$_POST['docemail'];
-$password=md5($_POST['npass']);
-$sql=mysqli_query($con,"insert into doctors(specilization,doctorName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
+{	$docspecialization=$_POST['especializacion'];
+$nombre_doctor=$_POST['nombre_doctor'];
+$dirrecion=$_POST['dirrecion'];
+$tarifas=$_POST['tarifas'];
+$contacto=$_POST['contacto'];
+$email=$_POST['email'];
+$password=md5($_POST['password']);
+$sql=mysqli_query($con,"insert into doctors(especializacion,nombre_doctor,dirrecion,tarifas,contacto,email,password) values('$docspecialization','$nombre_doctor','$dirrecion','$tarifas','$contacto','$email','$password')");
 if($sql)
 {
-echo "<script>alert('Doctor info added Successfully');</script>";
+echo "<script>alert('Información del médico agregada con éxito');</script>";
 echo "<script>window.location.href ='manage-doctors.php'</script>";
 
 }
@@ -25,7 +25,7 @@ echo "<script>window.location.href ='manage-doctors.php'</script>";
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | Add Doctor</title>
+		<title>Agregar doctor</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -46,7 +46,7 @@ function valid()
 {
  if(document.adddoc.npass.value!= document.adddoc.cfpass.value)
 {
-alert("Password and Confirm Password Field do not match  !!");
+alert("La contraseña y el campo Confirmar contraseña no coinciden  !!");
 document.adddoc.cfpass.focus();
 return false;
 }
@@ -85,16 +85,8 @@ error:function (){}
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Add Doctor</h1>
+									<h1 class="mainTitle">Agregar nuevo doctor</h1>
 																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>Admin</span>
-									</li>
-									<li class="active">
-										<span>Add Doctor</span>
-									</li>
-								</ol>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
@@ -107,23 +99,23 @@ error:function (){}
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Add Doctor</h5>
+													<h5 class="panel-title">Formulario de doctor</h5>
 												</div>
 												<div class="panel-body">
 									
 													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
 														<div class="form-group">
 															<label for="DoctorSpecialization">
-																Doctor Specialization
+															Doctora Especialización
 															</label>
 							<select name="Doctorspecialization" class="form-control" required="true">
-																<option value="">Select Specialization</option>
-<?php $ret=mysqli_query($con,"select * from doctorspecilization");
+																<option value="">Seleccionar especialización</option>
+<?php $ret=mysqli_query($con,"select * from especializacion");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
-																<option value="<?php echo htmlentities($row['specilization']);?>">
-																	<?php echo htmlentities($row['specilization']);?>
+																<option value="<?php echo htmlentities($row['doctor_especializacion']);?>">
+																	<?php echo htmlentities($row['doctor_especializacion']);?>
 																</option>
 																<?php } ?>
 																
@@ -131,38 +123,38 @@ while($row=mysqli_fetch_array($ret))
 														</div>
 
 <div class="form-group">
-															<label for="doctorname">
-																 Doctor Name
+															<label for="nombre_doctor">
+															Nombre del médico
 															</label>
-					<input type="text" name="docname" class="form-control"  placeholder="Enter Doctor Name" required="true">
+					<input type="text" name="nombre_doctor" class="form-control"  placeholder="Nombre del médico" required="true">
 														</div>
 
 
 <div class="form-group">
-															<label for="address">
-																 Doctor Clinic Address
+															<label for="dirrecion">
+															Dirección
 															</label>
-					<textarea name="clinicaddress" class="form-control"  placeholder="Enter Doctor Clinic Address" required="true"></textarea>
+					<textarea name="dirrecion" class="form-control"  placeholder="Dirección" required="true"></textarea>
 														</div>
 <div class="form-group">
-															<label for="fess">
-																 Doctor Consultancy Fees
+															<label for="tarifas">
+															Tarifas
 															</label>
-					<input type="text" name="docfees" class="form-control"  placeholder="Enter Doctor Consultancy Fees" required="true">
+					<input type="text" name="tarifas" class="form-control"  placeholder="Tarifas" required="true">
 														</div>
 	
 <div class="form-group">
-									<label for="fess">
-																 Doctor Contact no
+									<label for="contacto">
+									                        Contacto
 															</label>
-					<input type="text" name="doccontact" class="form-control"  placeholder="Enter Doctor Contact no" required="true">
+					<input type="text" name="contacto" class="form-control"  placeholder="Contacto" required="true">
 														</div>
 
 <div class="form-group">
-									<label for="fess">
-																 Doctor Email
+									<label for="email">
+																 Email
 															</label>
-<input type="email" id="docemail" name="docemail" class="form-control"  placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
+<input type="email" id="docemail" name="email" class="form-control"  placeholder="Email" required="true" onBlur="checkemailAvailability()">
 <span id="email-availability-status"></span>
 </div>
 
@@ -173,20 +165,20 @@ while($row=mysqli_fetch_array($ret))
 															<label for="exampleInputPassword1">
 																 Password
 															</label>
-					<input type="password" name="npass" class="form-control"  placeholder="New Password" required="required">
+					<input type="password" name="password" class="form-control"  placeholder="New Password" required="required">
 														</div>
 														
 <div class="form-group">
 															<label for="exampleInputPassword2">
-																Confirm Password
+															Confirmar Password
 															</label>
-									<input type="password" name="cfpass" class="form-control"  placeholder="Confirm Password" required="required">
+									<input type="password" name="cfpass" class="form-control"  placeholder=" Password" required="required">
 														</div>
 														
 														
 														
 														<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-															Submit
+														Enviar
 														</button>
 													</form>
 												</div>
