@@ -6,14 +6,14 @@ include('include/checklogin.php');
 check_login();
 
 if(isset($_POST['submit']))
-{	$docspecialization=$_POST['especializacion'];
+{	$especializacion=$_POST['especializacion'];
 $nombre_doctor=$_POST['nombre_doctor'];
 $dirrecion=$_POST['dirrecion'];
 $tarifas=$_POST['tarifas'];
 $contacto=$_POST['contacto'];
 $email=$_POST['email'];
 $password=md5($_POST['password']);
-$sql=mysqli_query($con,"insert into doctors(especializacion,nombre_doctor,dirrecion,tarifas,contacto,email,password) values('$docspecialization','$nombre_doctor','$dirrecion','$tarifas','$contacto','$email','$password')");
+$sql=mysqli_query($con,"insert into doctors(especializacion,nombre_doctor,dirrecion,tarifas,contacto,email,password) values('$especializacion','$nombre_doctor','$dirrecion','$tarifas','$contacto','$email','$password')");
 if($sql)
 {
 echo "<script>alert('Información del médico agregada con éxito');</script>";
@@ -108,7 +108,7 @@ error:function (){}
 															<label for="DoctorSpecialization">
 															Doctora Especialización
 															</label>
-							<select name="Doctorspecialization" class="form-control" required="true">
+							<select name="especializacion" class="form-control" required="true">
 																<option value="">Seleccionar especialización</option>
 <?php $ret=mysqli_query($con,"select * from especializacion");
 while($row=mysqli_fetch_array($ret))

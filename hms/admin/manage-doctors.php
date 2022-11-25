@@ -9,13 +9,13 @@ check_login();
 if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
-                  $_SESSION['msg']="data deleted !!";
+                  $_SESSION['msg']="Datos borrados !!";
 		  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | Manage Doctors</title>
+		<title>Doctores</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -46,17 +46,7 @@ if(isset($_GET['del']))
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Manage Doctors</h1>
-																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>Admin</span>
-									</li>
-									<li class="active">
-										<span>Manage Doctors</span>
-									</li>
-								</ol>
-							</div>
+									<h1 class="mainTitle">Doctores</h1>
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
@@ -65,17 +55,17 @@ if(isset($_GET['del']))
 
 									<div class="row">
 								<div class="col-md-12">
-									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Docters</span></h5>
+									<h5 class="over-title margin-bottom-15"> <span class="text-bold">Docteres</span></h5>
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th>Specialization</th>
-												<th class="hidden-xs">Doctor Name</th>
-												<th>Creation Date </th>
-												<th>Action</th>
+												<th>Especialización</th>
+												<th class="hidden-xs">Doctor</th>
+												<th>Fecha de creación</th>
+												<th>Acción</th>
 												
 											</tr>
 										</thead>
@@ -89,9 +79,9 @@ while($row=mysqli_fetch_array($sql))
 
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
-												<td class="hidden-xs"><?php echo $row['specilization'];?></td>
-												<td><?php echo $row['doctorName'];?></td>
-												<td><?php echo $row['creationDate'];?>
+												<td class="hidden-xs"><?php echo $row['especializacion'];?></td>
+												<td><?php echo $row['nombre_doctor'];?></td>
+												<td><?php echo $row['fecha_creación'];?>
 												</td>
 												
 												<td >
@@ -108,17 +98,17 @@ while($row=mysqli_fetch_array($sql))
 														<ul class="dropdown-menu pull-right dropdown-light" role="menu">
 															<li>
 																<a href="#">
-																	Edit
+																	Editar
 																</a>
 															</li>
 															<li>
 																<a href="#">
-																	Share
+																Cuota
 																</a>
 															</li>
 															<li>
 																<a href="#">
-																	Remove
+																eliminar
 																</a>
 															</li>
 														</ul>
