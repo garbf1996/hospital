@@ -40,6 +40,11 @@
 											<span class="title"> Agregar doctor</span>
 										</a>
 									</li>	
+									<li>
+										<a href="manage-doctors.php">
+											<span class="title"> Lista Doctor</span>
+										</a>
+									</li>
 								</ul>
 								</li>
 
