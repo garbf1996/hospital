@@ -51,10 +51,11 @@ check_login();
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Nombre  paciente</th>
-<th>Sexo del paciente</th>
+<th>Nombre de paciente</th>
+<th>Email</th>
 <th>Sexo del paciente </th>
-<th>Fecha de creación </th>
+<th>Edad </th>
+<th>Fecha de creación</th>
 <th>Acción</th>
 </tr>
 </thead>
