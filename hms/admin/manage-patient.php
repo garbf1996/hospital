@@ -9,7 +9,7 @@ check_login();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | View Patients</title>
+		<title>VER PACIENTES</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -37,50 +37,42 @@ check_login();
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Admin | View Patients</h1>
+<h1 class="mainTitle">VER PACIENTES</h1>
 </div>
-<ol class="breadcrumb">
-<li>
-<span>Admin</span>
-</li>
-<li class="active">
-<span>View Patients</span>
-</li>
-</ol>
+
 </div>
 </section>
 <div class="container-fluid container-fullw bg-white">
 <div class="row">
 <div class="col-md-12">
-<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
+<h5 class="over-title margin-bottom-15"> <span class="text-bold">PACIENTES</span></h5>
 	
 <table class="table table-hover" id="sample-table-1">
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
-<th>Action</th>
+<th>Nombre  paciente</th>
+<th>Sexo del paciente</th>
+<th>Sexo del paciente </th>
+<th>Fecha de creación </th>
+<th>Acción</th>
 </tr>
 </thead>
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient");
+$sql=mysqli_query($con,"select * from paciente");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
+<td class="hidden-xs"><?php echo $row['nombre_completo'];?></td>
+<td><?php echo $row['email'];?></td>
+<td><?php echo $row['sexo'];?></td>
+<td><?php echo $row['edad'];?></td>
+<td><?php echo $row['fecha_creacion'];?>
 </td>
 <td>
 
