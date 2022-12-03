@@ -50,7 +50,7 @@ if(isset($_GET['del']))
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-12">
-									<h1 class="mainTitle">Admin | Agregar doctora Especialización</h1>
+									<h1 class="mainTitle">Agregar doctora Especialización</h1>
 									</div>
 							</div>
 						</section>

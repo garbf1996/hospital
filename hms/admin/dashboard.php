@@ -115,7 +115,7 @@ $num_rows2 = mysqli_num_rows($sql);
 											
 											<p class="links cl-effect-1">
 												<a href="manage-patient.php">
-<?php $result = mysqli_query($con,"SELECT * FROM tblpatient ");
+<?php $result = mysqli_query($con,"SELECT * FROM paciente ");
 $num_rows = mysqli_num_rows($result);
 {
 ?>

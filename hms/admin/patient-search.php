@@ -9,7 +9,7 @@ check_login();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | View Patients</title>
+		<title>Administrador | Ver pacientes</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -37,16 +37,8 @@ check_login();
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Admin | View Patients</h1>
+<h1 class="mainTitle">Administrador | Ver pacientes</h1>
 </div>
-<ol class="breadcrumb">
-<li>
-<span>Admin</span>
-</li>
-<li class="active">
-<span>View Patients</span>
-</li>
-</ol>
 </div>
 </section>
 <div class="container-fluid container-fullw bg-white">
@@ -56,13 +48,13 @@ check_login();
 
 <div class="form-group">
 <label for="doctorname">
-Search by Name/Mobile No.
+Buscar por nombre/número de móvil
 </label>
 <input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
 </div>
 
 <button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
-Search
+Buscar
 </button>
 </form>
 <?php
@@ -71,23 +63,23 @@ if(isset($_POST['search']))
 
 $sdata=$_POST['searchdata'];
   ?>
-  <h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
+  <h4 align="center">Resultado en contra"<?php echo $sdata;?>" palabra clave </h4>
 <table class="table table-hover" id="sample-table-1">
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
+<th>nombre</th>
+<th>Correo</th>
+<th>contactos </th>
+<th>Dirrecion </th>
+<th>Sexo </th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient where PatientName like '%$sdata%'|| PatientContno like '%$sdata%'");
+$sql=mysqli_query($con,"select * from paciente where nombre_completo like '%$sdata%'|| numero_telefonos like '%$sdata%'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
@@ -96,11 +88,11 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
+<td class="hidden-xs"><?php echo $row['nombre_completo'];?></td>
+<td><?php echo $row['email'];?></td>
+<td><?php echo $row['numero_telefonos'];?></td>
+<td><?php echo $row['Dirrecion'];?></td>
+<td><?php echo $row['sexo'];?>
 </td>
 <td>
 

@@ -118,8 +118,8 @@ $ret=mysqli_query($con,"select * from historia_medica  where 	Id_paciente='$vid'
   </tr>
   <tr>
     <th>#</th>
-<thSugar>Tipo sangre</thSugar>
-<th>peso </th>
+<thSugar>Historias</thSugar>
+<th>Tipo sangre </th>
 <th>Temperatura</th>
 <th>Altura</th>
 <th>Altura</th>

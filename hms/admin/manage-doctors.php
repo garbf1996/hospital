@@ -60,8 +60,13 @@ if(isset($_GET['del']))
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
-											<tr>manage-doctors.php
-											</tr>
+											<tr>
+                                            <th class="center">#</th>
+                                            <th>Especializacion</th>
+                                            <th>Email</th>
+                                            <th>Fecha de creación </th>
+                                            <th>Acción</th>
+                                            </tr>
 										</thead>
 										<tbody>
 <?php

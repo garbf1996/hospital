@@ -8,13 +8,13 @@ check_login();
 if(isset($_GET['del']))
 		  {
 		          mysqli_query($con,"delete from users where id = '".$_GET['id']."'");
-                  $_SESSION['msg']="data deleted !!";
+                  $_SESSION['msg']="datos borrados!!";
 		  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | Manage Users</title>
+		<title>Administrador | Administrar usuarios</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -45,16 +45,9 @@ if(isset($_GET['del']))
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Manage Users</h1>
+									<h1 class="mainTitle">Administrador | Administrar usuarios</h1>
 																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>Admin</span>
-									</li>
-									<li class="active">
-										<span>Manage Users</span>
-									</li>
-								</ol>
+							
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
@@ -64,21 +57,22 @@ if(isset($_GET['del']))
 
 									<div class="row">
 								<div class="col-md-12">
-									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Users</span></h5>
+									<h5 class="over-title margin-bottom-15">Administrar <span class="text-bold">Usurio</span></h5>
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th>Full Name</th>
-												<th class="hidden-xs">Adress</th>
-												<th>City</th>
-												<th>Gender </th>
+												<th>Nombre</th>
+												<th class="hidden-xs">Dirección</th>
+												<th>Ciudad</th>
+												<th>Sexo </th>
 												<th>Email </th>
-												<th>Creation Date </th>
-												<th>Updation Date </th>
-												<th>Action</th>
+											
+												<th>fecha de creación </th>
+											
+												<th>Acción</th>
 												
 											</tr>
 										</thead>
@@ -92,20 +86,19 @@ while($row=mysqli_fetch_array($sql))
 
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
-												<td class="hidden-xs"><?php echo $row['fullName'];?></td>
-												<td><?php echo $row['address'];?></td>
-												<td><?php echo $row['city'];?>
+												<td class="hidden-xs"><?php echo $row['nombre_completo'];?></td>
+												<td><?php echo $row['dirrecion'];?></td>
+												<td><?php echo $row['ciudad'];?>
 												</td>
-												<td><?php echo $row['gender'];?></td>
+												<td><?php echo $row['sexo'];?></td>
 												<td><?php echo $row['email'];?></td>
-												<td><?php echo $row['regDate'];?></td>
-												<td><?php echo $row['updationDate'];?>
+												<td><?php echo $row['fecha_creacion'];?></td>
 												</td>
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
 							
 													
-	<a href="manage-users.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+	<a href="manage-users.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('¿Estás seguro de que quieres eliminar?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">
