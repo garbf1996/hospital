@@ -63,6 +63,7 @@ if(isset($_GET['del']))
 											<tr>
                                             <th class="center">#</th>
                                             <th>Especializacion</th>
+											<th>Doctor</th>
                                             <th>Email</th>
                                             <th>Fecha de creación </th>
                                             <th>Acción</th>
@@ -80,6 +81,7 @@ while($row=mysqli_fetch_array($sql))
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['especializacion'];?></td>
 												<td><?php echo $row['nombre_doctor'];?></td>
+												<td><?php echo $row['email'];?></td>
 												<td><?php echo $row['fecha_creación'];?>
 												</td>
 												
