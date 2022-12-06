@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['cancel']))
 		  {
-		          mysqli_query($con,"update appointment set estatu_susuario='0' where id = '".$_GET['id']."'");
+		          mysqli_query($con,"update appointment set usuario_estatus='0' where id = '".$_GET['id']."'");
                   $_SESSION['msg']="Su cita cancelada !!";
 		  }
 ?>
@@ -45,15 +45,7 @@ if(isset($_GET['cancel']))
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 class="mainTitle">Usuario | Historial de citas</h1>
-																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>Usuario </span>
-									</li>
-									<li class="active">
-										<span>Historial de citas</span>
-									</li>
-								</ol>
+		                    </div>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
@@ -93,21 +85,21 @@ while($row=mysqli_fetch_array($sql))
 												<td class="hidden-xs"><?php echo $row['nombre'];?></td>
 												<td><?php echo $row['doctorEspecializacion'];?></td>
 												<td><?php echo $row['precio'];?></td>
-												<td><?php echo $row['dia'];?> / <?php echo
-												 $row['hora'];?>
+												<td><?php echo $row['dia_cita'];?> / <?php echo
+												 $row['hora_cita'];?>
 												</td>
 												<td><?php echo $row['fecha_publicacion'];?></td>
 												<td>
-<?php if(($row['estatu_susuario']==1) && ($row['estado_doctor']==1))  
+<?php if(($row['usuario_estatus']==1) && ($row['doctor_estatus']==1))  
 {
 	echo "Activo";
 }
-if(($row['estatu_susuario']==0) && ($row['estado_doctor']==1))  
+if(($row['usuario_estatus']==0) && ($row['doctor_estatus']==1))  
 {
 	echo "Cancelar por usted";
 }
 
-if(($row['estatu_susuario']==1) && ($row['estado_doctor']==0))  
+if(($row['usuario_estatus']==1) && ($row['doctor_estatus']==0))  
 {
 	echo "Cancelar por el doctor/a";
 }
@@ -117,7 +109,7 @@ if(($row['estatu_susuario']==1) && ($row['estado_doctor']==0))
 												?></td>
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<?php if(($row['estatu_susuario']==1) && ($row['estado_doctor']==1))  
+							<?php if(($row['usuario_estatus']==1) && ($row['doctor_estatus']==1))  
 { ?>
 
 													

@@ -7,7 +7,7 @@ check_login();
 
 if(isset($_POST['submit']))
 {
-$specilization=$_POST['Doctorspecialization'];
+$specilization=$_POST['doctorEspecializacion'];
 $doctorid=$_POST['doctor'];
 $userid=$_SESSION['id'];
 $fees=$_POST['fees'];
@@ -15,10 +15,10 @@ $appdate=$_POST['appdate'];
 $time=$_POST['apptime'];
 $userstatus=1;
 $docstatus=1;
-$query=mysqli_query($con,"insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+$query=mysqli_query($con,"insert into appointment(doctorEspecializacion,doctorId,userId,precio,dia_cita,hora_cita,usuario_estatus,doctor_estatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
 	if($query)
 	{
-		echo "<script>alert('Your appointment successfully booked');</script>";
+		echo "<script>alert('Su cita reservada con éxito');</script>";
 	}
 
 }
@@ -87,16 +87,8 @@ function getfee(val) {
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">User | Book Appointment</h1>
+									<h1 class="mainTitle">RESERVAR UNA CITA</h1>
 																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>User</span>
-									</li>
-									<li class="active">
-										<span>Book Appointment</span>
-									</li>
-								</ol>
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
@@ -108,7 +100,7 @@ function getfee(val) {
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Book Appointment</h5>
+													<h5 class="panel-title">RESERVAR UNA CITA</h5>
 												</div>
 												<div class="panel-body">
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg1']);?>
@@ -118,11 +110,11 @@ function getfee(val) {
 
 
 <div class="form-group">
-															<label for="DoctorSpecialization">
-																Doctor Specialization
+															<label for="doctorEspecializacion">
+															Doctor Especialización
 															</label>
-							<select name="Doctorspecialization" class="form-control" onChange="getdoctor(this.value);" required="required">
-																<option value="">Select Specialization</option>
+							<select name="doctorEspecializacion" class="form-control" onChange="getdoctor(this.value);" required="required">
+																<option value="">Seleccionar especialización</option>
 <?php $ret=mysqli_query($con,"select * from doctorspecilization");
 while($row=mysqli_fetch_array($ret))
 {
@@ -140,10 +132,10 @@ while($row=mysqli_fetch_array($ret))
 
 														<div class="form-group">
 															<label for="doctor">
-																Doctors
+																Doctores
 															</label>
 						<select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="required">
-						<option value="">Select Doctor</option>
+						<option value="">Seleccionar doctor</option>
 						</select>
 														</div>
 
@@ -153,7 +145,7 @@ while($row=mysqli_fetch_array($ret))
 
 														<div class="form-group">
 															<label for="consultancyfees">
-																Consultancy Fees
+																Precio
 															</label>
 					<select name="fees" class="form-control" id="fees"  readonly>
 						
@@ -161,24 +153,24 @@ while($row=mysqli_fetch_array($ret))
 														</div>
 														
 <div class="form-group">
-															<label for="AppointmentDate">
-																Date
+															<label for="dia_cita">
+																Fecha
 															</label>
 <input class="form-control datepicker" name="appdate"  required="required" data-date-format="yyyy-mm-dd">
 	
 														</div>
 														
 <div class="form-group">
-															<label for="Appointmenttime">
+															<label for="hora_cita">
 														
-														Time
+														Tiempo
 													
 															</label>
 			<input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
 														</div>														
 														
 														<button type="submit" name="submit" class="btn btn-o btn-primary">
-															Submit
+															Enviar
 														</button>
 													</form>
 												</div>
