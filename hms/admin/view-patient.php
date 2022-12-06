@@ -121,7 +121,7 @@ $ret=mysqli_query($con,"select * from historia_medica  where 	Id_paciente='$vid'
 <thSugar>Historias</thSugar>
 <th>Tipo sangre </th>
 <th>Temperatura</th>
-<th>Altura</th>
+<th>Peso</th>
 <th>Altura</th>
 <th>fecha de creación</th>
 </tr>
@@ -130,9 +130,9 @@ while ($row=mysqli_fetch_array($ret)) {
   ?>
 <tr>
   <td><?php echo $cnt;?></td>
- <td><?php  echo $row['tipo_sangre'];?></td>
+  <td><?php  echo $row['tipo_sangre'];?></td>
+  <td><?php  echo $row['temperatuta'];?></td> 
  <td><?php  echo $row['peso'];?></td>
- <td><?php  echo $row['temperatuta'];?></td> 
   <td><?php  echo $row['altura'];?></td>
   <td><?php  echo $row['fecha_creacion'];?></td>
 </tr>

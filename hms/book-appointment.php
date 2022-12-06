@@ -7,27 +7,26 @@ check_login();
 
 if(isset($_POST['submit']))
 {
-$doctorEspecializacion=$_POST['doctorEspecializacion'];
+$specilization=$_POST['Doctorspecialization'];
 $doctorid=$_POST['doctor'];
 $userid=$_SESSION['id'];
-$precio=$_POST['precio'];
-$dia=$_POST['dia'];
-$hora=$_POST['hora'];
-$estatu_susuario=1;
-$estado_doctor=1;
-$query=mysqli_query($con,"insert into appointment(doctorEspecializacion,doctorId,userId,precio,dia,hora,estatu_susuario,estado_doctor) values
-('$doctorEspecializacion','$doctorid','$userid','$precio','$dia','$hora','$estatu_susuario','$estado_doctor')");
+$fees=$_POST['fees'];
+$appdate=$_POST['appdate'];
+$time=$_POST['apptime'];
+$userstatus=1;
+$docstatus=1;
+$query=mysqli_query($con,"insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
 	if($query)
 	{
-		echo "<script>alert('Su cita se reservó con éxito');</script>";
+		echo "<script>alert('Your appointment successfully booked');</script>";
 	}
 
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
-		<title>Usuario | Reservar una cita</title>
+		<title>User  | Book Appointment</title>
 	
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -48,7 +47,7 @@ function getdoctor(val) {
 	$.ajax({
 	type: "POST",
 	url: "get_doctor.php",
-	data:'especializacion='+val,
+	data:'specilizationid='+val,
 	success: function(data){
 		$("#doctor").html(data);
 	}
@@ -64,7 +63,7 @@ function getfee(val) {
 	url: "get_doctor.php",
 	data:'doctor='+val,
 	success: function(data){
-		$("#precio").html(data);
+		$("#fees").html(data);
 	}
 	});
 }
@@ -88,14 +87,14 @@ function getfee(val) {
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Usuario | Reservar una cita</h1>
+									<h1 class="mainTitle">User | Book Appointment</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
 										<span>User</span>
 									</li>
 									<li class="active">
-										<span> Reservar una cita</span>
+										<span>Book Appointment</span>
 									</li>
 								</ol>
 						</section>
@@ -109,7 +108,7 @@ function getfee(val) {
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Reservar una cita</h5>
+													<h5 class="panel-title">Book Appointment</h5>
 												</div>
 												<div class="panel-body">
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg1']);?>
@@ -119,17 +118,17 @@ function getfee(val) {
 
 
 <div class="form-group">
-															<label for="doctorEspecializacion">
-																Doctor especializacion"
+															<label for="DoctorSpecialization">
+																Doctor Specialization
 															</label>
-							<select name="doctorEspecializacion" class="form-control" onChange="getdoctor(this.value);" required="required">
-																<option value="">Select especializacion</option>
+							<select name="Doctorspecialization" class="form-control" onChange="getdoctor(this.value);" required="required">
+																<option value="">Select Specialization</option>
 <?php $ret=mysqli_query($con,"select * from doctorspecilization");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
-																<option value="<?php echo htmlentities($row['especializacion']);?>">
-																	<?php echo htmlentities($row['especializacion']);?>
+																<option value="<?php echo htmlentities($row['specilization']);?>">
+																	<?php echo htmlentities($row['specilization']);?>
 																</option>
 																<?php } ?>
 																
@@ -141,10 +140,10 @@ while($row=mysqli_fetch_array($ret))
 
 														<div class="form-group">
 															<label for="doctor">
-															Doctor
+																Doctors
 															</label>
 						<select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="required">
-						<option value="">Seleccionar doctor</option>
+						<option value="">Select Doctor</option>
 						</select>
 														</div>
 
@@ -153,33 +152,33 @@ while($row=mysqli_fetch_array($ret))
 
 
 														<div class="form-group">
-															<label for="precio">
-															Tarifas de consultoría
+															<label for="consultancyfees">
+																Consultancy Fees
 															</label>
-					<select name="precio" class="form-control" id="precio"  readonly>
+					<select name="fees" class="form-control" id="fees"  readonly>
 						
 						</select>
 														</div>
 														
 <div class="form-group">
-															<label for="dia">
+															<label for="AppointmentDate">
 																Date
 															</label>
-<input class="form-control datepicker" name="dia"  required="required" data-date-format="yyyy-mm-dd">
+<input class="form-control datepicker" name="appdate"  required="required" data-date-format="yyyy-mm-dd">
 	
 														</div>
 														
 <div class="form-group">
-															<label for="hora">
+															<label for="Appointmenttime">
 														
 														Time
 													
 															</label>
-			<input class="form-control" name="hora" id="timepicker1" required="required">eg : 10:00 PM
+			<input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
 														</div>														
 														
 														<button type="submit" name="submit" class="btn btn-o btn-primary">
-															enviar
+															Submit
 														</button>
 													</form>
 												</div>

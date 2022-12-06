@@ -55,7 +55,9 @@
 											<i class="ti-user"></i>
 										</div>
 										<div class="item-inner">
+										<a href="manage-users.php">
 											<span class="title"> Usurio </span><i class="icon-arrow"></i>
+                                         </a>
 										</div>
 									</div>
 								</a>

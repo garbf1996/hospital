@@ -1,9 +1,9 @@
 <?php
 include('include/config.php');
-if(!empty($_POST["especializacion"])) 
+if(!empty($_POST["specilizationid"])) 
 {
 
- $sql=mysqli_query($con,"select doctor_nombre,id from doctors where especializacion='".$_POST['especializacion']."'");?>
+ $sql=mysqli_query($con,"select 	doctor_nombre,id from doctors where especializacion='".$_POST['specilizationid']."'");?>
  <option selected="selected">Select Doctor </option>
  <?php
  while($row=mysqli_fetch_array($sql))
@@ -17,10 +17,10 @@ if(!empty($_POST["especializacion"]))
 if(!empty($_POST["doctor"])) 
 {
 
- $sql=mysqli_query($con,"select precio from doctors where id='".$_POST['doctor']."'");
+ $sql=mysqli_query($con,"select docFees from doctors where id='".$_POST['doctor']."'");
  while($row=mysqli_fetch_array($sql))
  	{?>
- <option value="<?php echo htmlentities($row['precio']); ?>"><?php echo htmlentities($row['precio']); ?></option>
+ <option value="<?php echo htmlentities($row['docFees']); ?>"><?php echo htmlentities($row['docFees']); ?></option>
   <?php
 }
 }
