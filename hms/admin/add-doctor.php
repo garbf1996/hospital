@@ -13,7 +13,7 @@ $tarifas=$_POST['tarifas'];
 $contacto=$_POST['contacto'];
 $email=$_POST['email'];
 $password=md5($_POST['password']);
-$sql=mysqli_query($con,"insert into doctors(especializacion,nombre_doctor,dirrecion,tarifas,contacto,email,password) values('$especializacion','$nombre_doctor','$dirrecion','$tarifas','$contacto','$email','$password')");
+$sql=mysqli_query($con,"insert into doctors(especializacion,doctor_nombre,dirrecion,tarifas,contacto,email,password) values('$especializacion','$nombre_doctor','$dirrecion','$tarifas','$contacto','$email','$password')");
 if($sql)
 {
 echo "<script>alert('Información del médico agregada con éxito');</script>";

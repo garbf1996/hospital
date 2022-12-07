@@ -28,7 +28,7 @@
 						
 							<li class="dropdown current-user">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
-									<img src="assets/images/images.jpg"> <span class="username">
+									<img src="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg"> <span class="username">
 
 
 
@@ -43,12 +43,6 @@ while($row=mysqli_fetch_array($query))
 									<li>
 										<a href="edit-profile.php">
 										Mi perfil
-										</a>
-									</li>
-								
-									<li>
-										<a href="change-password.php">
-										Cambia la contraseña
 										</a>
 									</li>
 									<li>

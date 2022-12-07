@@ -80,7 +80,7 @@ while($row=mysqli_fetch_array($sql))
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['especializacion'];?></td>
-												<td><?php echo $row['nombre_doctor'];?></td>
+												<td><?php echo $row['doctor_nombre'];?></td>
 												<td><?php echo $row['email'];?></td>
 												<td><?php echo $row['fecha_creación'];?>
 												</td>

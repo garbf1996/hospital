@@ -4,16 +4,16 @@ include("include/config.php");
 error_reporting(0);
 if(isset($_POST['submit']))
 {
-$ret=mysqli_query($con,"SELECT * FROM doctors WHERE docEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'");
+$ret=mysqli_query($con,"SELECT * FROM doctors WHERE email='".$_POST['usuario']."' and password='".md5($_POST['password'])."'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
 $extra="dashboard.php";
-$_SESSION['dlogin']=$_POST['username'];
+$_SESSION['dlogin']=$_POST['usuario'];
 $_SESSION['id']=$num['id'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
-$log=mysqli_query($con,"insert into doctorslog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
+$log=mysqli_query($con,"insert into doctorslog(uid,usuario,userip,estatus) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
@@ -22,11 +22,11 @@ exit();
 else
 {
 $host  = $_SERVER['HTTP_HOST'];
-$_SESSION['dlogin']=$_POST['username'];
+$_SESSION['dlogin']=$_POST['usuario'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
-mysqli_query($con,"insert into doctorslog(username,userip,status) values('".$_SESSION['dlogin']."','$uip','$status')");
-$_SESSION['errmsg']="Invalid username or password";
+mysqli_query($con,"insert into doctorslog(usuario,userip,estatus) values('".$_SESSION['dlogin']."','$uip','$status')");
+$_SESSION['errmsg']="Invalid usuario or password";
 $extra="index.php";
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
@@ -71,7 +71,7 @@ exit();
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="text" class="form-control" name="username" placeholder="Username">
+									<input type="text" class="form-control" name="usuario" placeholder="usuario">
 									<i class="fa fa-user"></i> </span>
 							</div>
 							<div class="form-group form-actions">

@@ -115,12 +115,12 @@ function getfee(val) {
 															</label>
 							<select name="doctorEspecializacion" class="form-control" onChange="getdoctor(this.value);" required="required">
 																<option value="">Seleccionar especialización</option>
-<?php $ret=mysqli_query($con,"select * from doctorspecilization");
+<?php $ret=mysqli_query($con,"select * from especializacion");
 while($row=mysqli_fetch_array($ret))
 {
 ?>
-																<option value="<?php echo htmlentities($row['specilization']);?>">
-																	<?php echo htmlentities($row['specilization']);?>
+																<option value="<?php echo htmlentities($row['doctor_especializacion']);?>">
+																	<?php echo htmlentities($row['doctor_especializacion']);?>
 																</option>
 																<?php } ?>
 																
