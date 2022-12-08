@@ -6,13 +6,13 @@
 							<i class="ti-align-justify"></i>
 						</a>
 						<a class="navbar-brand" href="#">
-							<h2 style="padding-top:20% ">HMS</h2>
+							<h2 style="padding-top:20% ">DR</h2>
 						</a>
 						<a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
 							<i class="ti-align-justify"></i>
 						</a>
 						<a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
+							<span class="sr-only">Navegación de palanca</span>
 							<i class="ti-view-grid"></i>
 						</a>
 					</div>
@@ -22,38 +22,27 @@
 						<ul class="nav navbar-right">
 							<!-- start: MESSAGES DROPDOWN -->
 								<li  style="padding-top:2% ">
-								<h2>Hospital Management System</h2>
+								<h2>Sistema de gestión hospitalaria</h2>
 							</li>
 						
 						
 							<li class="dropdown current-user">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
-									<img src="assets/images/images.jpg" > <span class="username">
+									<img src="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg" > <span class="username">
 
 
 
-									<?php $query=mysqli_query($con,"select doctorName from doctors where id='".$_SESSION['id']."'");
+									<?php $query=mysqli_query($con,"select doctor_nombre from doctors where id='".$_SESSION['id']."'");
 while($row=mysqli_fetch_array($query))
 {
-	echo $row['doctorName'];
+	echo $row['doctor_nombre'];
 }
 									?> <i class="ti-angle-down"></i></i></span>
 								</a>
-								<ul class="dropdown-menu dropdown-dark">
-									<li>
-										<a href="edit-profile.php">
-											My Profile
-										</a>
-									</li>
-								
-									<li>
-										<a href="change-password.php">
-											Change Password
-										</a>
-									</li>
-									<li>
+								<ul class="dropdown-menu">
+									
 										<a href="logout.php">
-											Log Out
+										Cerrar sesión
 										</a>
 									</li>
 								</ul>

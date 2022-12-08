@@ -5,7 +5,7 @@
 						
 						<!-- start: MAIN NAVIGATION MENU -->
 						<div class="navbar-title">
-							<span>Main Navigation</span>
+							<span>Navegación Principal</span>
 						</div>
 						<ul class="main-navigation-menu">
 							<li>
@@ -15,7 +15,7 @@
 											<i class="ti-home"></i>
 										</div>
 										<div class="item-inner">
-											<span class="title"> Dashboard </span>
+											<span class="title">inicio</span>
 										</div>
 									</div>
 								</a>
@@ -29,7 +29,7 @@
 											<i class="ti-list"></i>
 										</div>
 										<div class="item-inner">
-											<span class="title"> Appointment History </span>
+											<span class="title"> Historial de citas </span>
 										</div>
 									</div>
 								</a>
@@ -41,7 +41,7 @@
 											<i class="ti-user"></i>
 										</div>
 										<div class="item-inner">
-											<span class="title"> Patients </span><i class="icon-arrow"></i>
+											<span class="title"> Pacientes </span><i class="icon-arrow"></i>
 										</div>
 									</div>
 								</a>
@@ -49,12 +49,12 @@
 									
 									<li>
 										<a href="add-patient.php">
-											<span class="title"> Add Patient</span>
+											<span class="title"> Añadir paciente</span>
 										</a>
 									</li>
 									<li>
 										<a href="manage-patient.php">
-											<span class="title"> Manage Patient </span>
+											<span class="title"> Añadir paciente</span>
 										</a>
 									</li>
 									
@@ -67,7 +67,7 @@
 											<i class="ti-search"></i>
 										</div>
 										<div class="item-inner">
-											<span class="title"> Search </span>
+											<span class="title"> Búsqueda </span>
 										</div>
 									</div>
 								</a>

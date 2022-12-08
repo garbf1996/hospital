@@ -39,7 +39,7 @@ exit();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Doctor Login</title>
+		<title>Inicio de sesión del médico</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -56,17 +56,17 @@ exit();
 		<div class="row">
 			<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 				<div class="logo margin-top-30">
-				<a href="../../index.html">	<h2> HMS | Doctor Login</h2></a>
+				<a href="../../index.html">	<h2>Inicio de sesión del médico</h2></a>
 				</div>
 
 				<div class="box-login">
 					<form class="form-login" method="post">
 						<fieldset>
 							<legend>
-								Sign in to your account
+							Iniciar sesión en su cuenta
 							</legend>
 							<p>
-								Please enter your name and password to log in.<br />
+							Por favor ingrese su nombre y contraseña para iniciar sesión.<br />
 								<span style="color:red;"><?php echo $_SESSION['errmsg']; ?><?php echo $_SESSION['errmsg']="";?></span>
 							</p>
 							<div class="form-group">
@@ -79,9 +79,7 @@ exit();
 									<input type="password" class="form-control password" name="password" placeholder="Password">
 									<i class="fa fa-lock"></i>
 									 </span>
-									 <a href="forgot-password.php">
-									Forgot Password ?
-								</a>
+								
 							</div>
 							<div class="form-actions">
 								
@@ -94,9 +92,7 @@ exit();
 						</fieldset>
 					</form>
 
-					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
-					</div>
+					
 			
 				</div>
 

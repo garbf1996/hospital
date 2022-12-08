@@ -7,8 +7,8 @@ check_login();
 
 if(isset($_POST['submit']))
 {	
-	$docid=$_SESSION['id'];
-	$patname=$_POST['patname'];
+$docid=$_SESSION['id'];
+$patname=$_POST['patname'];
 $patcontact=$_POST['patcontact'];
 $patemail=$_POST['patemail'];
 $gender=$_POST['gender'];
