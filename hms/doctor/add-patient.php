@@ -111,7 +111,7 @@ Teléfono
 </div>
 
 <div class="form-group">
-								<input type="text" class="form-control" name="dirrecion" placeholder="Dirrecion" required>
+								<input type="text" class="form-control" name="Dirrecion" placeholder="Dirrecion" required>
 							</div>
 
                                <div class="form-group">
