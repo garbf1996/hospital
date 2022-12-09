@@ -17,10 +17,10 @@ if(!empty($_POST["specilizationid"]))
 if(!empty($_POST["doctor"])) 
 {
 
- $sql=mysqli_query($con,"select docFees from doctors where id='".$_POST['doctor']."'");
+ $sql=mysqli_query($con,"select tarifas from doctors where id='".$_POST['doctor']."'");
  while($row=mysqli_fetch_array($sql))
  	{?>
- <option value="<?php echo htmlentities($row['docFees']); ?>"><?php echo htmlentities($row['docFees']); ?></option>
+ <option value="<?php echo htmlentities($row['tarifas']); ?>"><?php echo htmlentities($row['tarifas']); ?></option>
   <?php
 }
 }

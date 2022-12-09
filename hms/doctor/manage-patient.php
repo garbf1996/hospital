@@ -58,30 +58,31 @@ check_login();
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
-<th>Action</th>
+<th>Nombre del paciente</th>
+<th>Email</th>
+<th>Teléfono </th>
+<th>Dirrecion</th>
+<th>Sexo </th>
+<th>Edad </th>
+<th>Accion</th>
 </tr>
 </thead>
 <tbody>
 <?php
 $docid=$_SESSION['id'];
-$sql=mysqli_query($con,"select * from tblpatient where Docid='$docid' ");
+$sql=mysqli_query($con,"select * from paciente where id_doctor='$docid' ");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
-</td>
+<td class="hidden-xs"><?php echo $row['nombre_completo'];?></td>
+<td><?php echo $row['email'];?></td>
+<td><?php echo $row['numero_telefonos'];?></td>
+<td><?php echo $row['Dirrecion'];?></td>
+<td><?php echo $row['sexo'];?></td>
+<td><?php echo $row['edad'];?></td>
 <td>
 
 <a href="edit-patient.php?editid=<?php echo $row['ID'];?>"><i class="fa fa-edit"></i></a> || <a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
