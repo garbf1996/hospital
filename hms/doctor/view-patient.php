@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Doctor | Manage Patients</title>
+		<title>médico | Administrar pacientes</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -60,22 +60,13 @@ if(isset($_POST['submit']))
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Doctor | Manage Patients</h1>
+<h1 class="mainTitle">médico | Administrar pacientes</h1>
 </div>
-<ol class="breadcrumb">
-<li>
-<span>Doctor</span>
-</li>
-<li class="active">
-<span>Manage Patients</span>
-</li>
-</ol>
 </div>
 </section>
 <div class="container-fluid container-fullw bg-white">
 <div class="row">
 <div class="col-md-12">
-<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
 <?php
                                $vid=$_GET['viewid'];
                                $ret=mysqli_query($con,"select * from paciente where ID='$vid'");
@@ -85,7 +76,7 @@ while ($row=mysqli_fetch_array($ret)) {
 <table border="1" class="table table-bordered">
  <tr align="center">
 <td colspan="4" style="font-size:20px;color:blue">
- Patient Details</td></tr>
+Detalles de la paciente</td></tr>
 
  <tr>
     <th scope>Nombre</th>
@@ -143,14 +134,14 @@ while ($row=mysqli_fetch_array($ret)) {
 </table>
 
 <p align="center">                            
- <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button></p>  
+ <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Agregar historial médico</button></p>  
 
 <?php  ?>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
      <div class="modal-content">
       <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Add Medical History</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar historial médico</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -161,37 +152,33 @@ while ($row=mysqli_fetch_array($ret)) {
                                  <form method="post" name="submit">
 
       <tr>
-    <th>Blood Pressure :</th>
+    <th>	Tipo sangre:</th>
     <td>
-    <input name="bp" placeholder="Blood Pressure" class="form-control wd-450" required="true"></td>
+    <input name="bp" placeholder="Tipo sangre" class="form-control wd-450" required="true"></td>
   </tr>                          
      <tr>
-    <th>Blood Sugar :</th>
+    <th>	Temperatura:</th>
     <td>
-    <input name="bs" placeholder="Blood Sugar" class="form-control wd-450" required="true"></td>
+    <input name="bs" placeholder="Temperatura" class="form-control wd-450" required="true"></td>
   </tr> 
   <tr>
-    <th>Weight :</th>
+    <th>Peso:</th>
     <td>
     <input name="weight" placeholder="Weight" class="form-control wd-450" required="true"></td>
   </tr>
   <tr>
-    <th>Body Temprature :</th>
+    <th>Altura:</th>
     <td>
-    <input name="temp" placeholder="Blood Sugar" class="form-control wd-450" required="true"></td>
+    <input name="temp" placeholder="Altura" class="form-control wd-450" required="true"></td>
   </tr>
                          
-     <tr>
-    <th>Prescription :</th>
-    <td>
-    <textarea name="pres" placeholder="Medical Prescription" rows="12" cols="14" class="form-control wd-450" required="true"></textarea></td>
-  </tr>  
+
    
 </table>
 </div>
 <div class="modal-footer">
- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
- <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerca</button>
+ <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
   
   </form>
 </div>

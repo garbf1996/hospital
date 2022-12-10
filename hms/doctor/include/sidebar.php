@@ -54,7 +54,7 @@
 									</li>
 									<li>
 										<a href="manage-patient.php">
-											<span class="title"> Añadir paciente</span>
+											<span class="title">paciente</span>
 										</a>
 									</li>
 									

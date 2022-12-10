@@ -77,17 +77,18 @@ $sdata=$_POST['searchdata'];
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
-<th>Action</th>
+<th>Nombre del paciente</th>
+<th>Email</th>
+<th>Teléfono </th>
+<th>Dirrecion</th>
+<th>Sexo </th>
+<th>Edad </th>
+<th>Accion</th>
 </tr>
 </thead>
 <tbody>
 <?php
-$sql=mysqli_query($con,"select * from tblpatient where PatientName like '%$sdata%'|| PatientContno like '%$sdata%'");
+$sql=mysqli_query($con,"select * from paciente where nombre_completo like '%$sdata%'|| numero_telefonos like '%$sdata%'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
@@ -96,15 +97,18 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
+<td class="hidden-xs"><?php echo $row['nombre_completo'];?></td>
+<td><?php echo $row['email'];?></td>
+<td><?php echo $row['numero_telefonos'];?></td>
+<td><?php echo $row['Dirrecion'];?></td>
+<td><?php echo $row['sexo'];?></td>
+<td><?php echo $row['edad'];?></td>
+
+
 </td>
 <td>
 
-<a href="edit-patient.php?editid=<?php echo $row['ID'];?>"><i class="fa fa-edit"></i></a> || <a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+ <a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>
