@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
    $pres=$_POST['pres'];
    
  
-      $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+      $query.=mysqli_query($con, "insert   historia_medica(Id_paciente,tipo_sangre,peso,temperatuta,altura,fecha_creacion)value('$vid','$bp','$bs','$weight','$temp','$pres')");
     if ($query) {
     echo '<script>alert("Medicle history has been added.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -78,7 +78,7 @@ if(isset($_POST['submit']))
 <h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
 <?php
                                $vid=$_GET['viewid'];
-                               $ret=mysqli_query($con,"select * from tblpatient where ID='$vid'");
+                               $ret=mysqli_query($con,"select * from paciente where ID='$vid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
                                ?>
@@ -87,65 +87,57 @@ while ($row=mysqli_fetch_array($ret)) {
 <td colspan="4" style="font-size:20px;color:blue">
  Patient Details</td></tr>
 
+ <tr>
+    <th scope>Nombre</th>
+    <td><?php  echo $row['nombre_completo'];?></td>
+    <th scope>Email</th>
+    <td><?php  echo $row['email'];?></td>
+  </tr>
+  
+  <tr>
+    <th scope>Sexo</th>
+    <td><?php  echo $row['sexo'];?></td>
+    <th>Edad</th>
+    <td><?php  echo $row['edad'];?></td>
+  </tr>
     <tr>
-    <th scope>Patient Name</th>
-    <td><?php  echo $row['PatientName'];?></td>
-    <th scope>Patient Email</th>
-    <td><?php  echo $row['PatientEmail'];?></td>
+    <th>	fecha de creación</th>
+    <td><?php  echo $row['fecha_creacion'];?></td>
+	<th>Dirrecio</th>
+    <td><?php  echo $row['Dirrecion'];?></td>
   </tr>
   <tr>
-    <th scope>Patient Mobile Number</th>
-    <td><?php  echo $row['PatientContno'];?></td>
-    <th>Patient Address</th>
-    <td><?php  echo $row['PatientAdd'];?></td>
-  </tr>
-    <tr>
-    <th>Patient Gender</th>
-    <td><?php  echo $row['PatientGender'];?></td>
-    <th>Patient Age</th>
-    <td><?php  echo $row['PatientAge'];?></td>
-  </tr>
-  <tr>
-    
-    <th>Patient Medical History(if any)</th>
-    <td><?php  echo $row['PatientMedhis'];?></td>
-     <th>Patient Reg Date</th>
-    <td><?php  echo $row['CreationDate'];?></td>
-  </tr>
  
 <?php }?>
 </table>
 <?php  
 
-$ret=mysqli_query($con,"select * from tblmedicalhistory  where PatientID='$vid'");
+$ret=mysqli_query($con,"select * from historia_medica  where Id_paciente='$vid'");
 
 
 
  ?>
 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-  <tr align="center">
-   <th colspan="8" >Medical History</th> 
-  </tr>
-  <tr>
-    <th>#</th>
-<th>Blood Pressure</th>
-<th>Weight</th>
-<th>Blood Sugar</th>
-<th>Body Temprature</th>
-<th>Medical Prescription</th>
-<th>Visit Date</th>
+
+  <th>#</th>
+<thSugar>Historias</thSugar>
+<th>Tipo sangre </th>
+<th>Temperatura</th>
+<th>Peso</th>
+<th>Altura</th>
+<th>fecha de creación</th>
 </tr>
 <?php  
 while ($row=mysqli_fetch_array($ret)) { 
   ?>
 <tr>
   <td><?php echo $cnt;?></td>
- <td><?php  echo $row['BloodPressure'];?></td>
- <td><?php  echo $row['Weight'];?></td>
- <td><?php  echo $row['BloodSugar'];?></td> 
-  <td><?php  echo $row['Temperature'];?></td>
-  <td><?php  echo $row['MedicalPres'];?></td>
-  <td><?php  echo $row['CreationDate'];?></td> 
+ <td><?php  echo $row['tipo_sangre'];?></td>
+ <td><?php  echo $row['peso'];?></td>
+ <td><?php  echo $row['temperatuta'];?></td> 
+  <td><?php  echo $row['altura'];?></td>
+  <td><?php  echo $row['fecha_creacion'];?></td>
+
 </tr>
 <?php $cnt=$cnt+1;} ?>
 </table>
