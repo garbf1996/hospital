@@ -8,12 +8,12 @@ $did=intval($_GET['id']);// get doctor id
 if(isset($_POST['submit']))
 {
 $especializacion=$_POST['especializacion'];
-$nombre_doctor=$_POST['nombre_doctor'];
+$doctor_nombre=$_POST['doctor_nombre'];
 $dirrecion=$_POST['dirrecion'];
 $tarifas=$_POST['tarifas'];
 $contacto=$_POST['contacto'];
 $email=$_POST['email'];
-$sql=mysqli_query($con,"Update doctors set especializacion='$especializacion',nombre_doctor='$nombre_doctor',dirrecion='$dirrecion',tarifas='$tarifas',contacto='$contacto',email='$email' where id='$did'");
+$sql=mysqli_query($con,"Update doctors set especializacion='$especializacion',	doctor_nombre='$doctor_nombre',dirrecion='$dirrecion',tarifas='$tarifas',contacto='$contacto',email='$email' where id='$did'");
 if($sql)
 {
 $msg="Datos del doctor actualizados con éxito";
@@ -103,10 +103,10 @@ while($row=mysqli_fetch_array($ret))
 														</div>
 
 <div class="form-group">
-															<label for="nombre_doctor">
+															<label for="doctor_nombre">
 																 Doctor Name
 															</label>
-	<input type="text" name="nombre_doctor" class="form-control" value="<?php echo htmlentities($data['nombre_doctor']);?>" >
+	<input type="text" name="doctor_nombre" class="form-control" value="<?php echo htmlentities($data['doctor_nombre']);?>" >
 														</div>
 
 

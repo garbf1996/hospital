@@ -131,28 +131,6 @@ Total pacientes :<?php echo htmlentities($num_rows);
 
 
 
-			<div class="col-sm-4">
-									<div class="panel panel-white no-radius text-center">
-										<div class="panel-body">
-										<figure class="figure">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsBRW8c6XdiBgmJmpozmtb5N1vhTCGGPEwag&usqp=CAU" class="figure-img img-fluid rounded">
-                                       
-                                        </figure>
-											
-											<p class="links cl-effect-1">
-												<a href="book-appointment.php">
-													<a href="unread-queries.php">
-												<?php 
-$sql= mysqli_query($con,"SELECT * FROM tblcontactus where  IsRead is null");
-$num_rows22 = mysqli_num_rows($sql);
-?>
-											Consultas nuevas totales<?php echo htmlentities($num_rows22);   ?>	
-												</a>
-												</a>
-											</p>
-										</div>
-									</div>
-								</div>
 
 
 

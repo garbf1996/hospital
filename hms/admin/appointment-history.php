@@ -8,7 +8,7 @@ check_login();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Patients | Appointment History</title>
+		<title>Pacientes | Historial de citas</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -28,9 +28,42 @@ check_login();
 	<body>
 		<div id="app">		
 <?php include('include/sidebar.php');?>
-			<div class="app-content">
-				
+<?php
+                               $vid=$_GET['viewid'];
+                               $ret=mysqli_query($con,"select * from paciente where ID='$vid'");
+$cnt=1;
+while ($row=mysqli_fetch_array($ret)) {
+                               ?>
+<table border="1" class="table table-bordered">
+ <tr align="center">
+<td colspan="4" style="font-size:20px;color:blue">
+ Patient Details</td></tr>
 
+    <tr>
+    <th scope>Patient Name</th>
+    <td><?php  echo $row['nombre_completo'];?></td>
+    <th scope>Patient Email</th>
+    <td><?php  echo $row['email'];?></td>
+  </tr>
+  <tr>
+    <th scope>Patient Mobile Number</th>
+    <td><?php  echo $row['numero_telefonos'];?></td>
+    <th>Patient Address</th>
+    <td><?php  echo $row['Dirrecion'];?></td>
+  </tr>
+    <tr>
+    <th>Patient Gender</th>
+    <td><?php  echo $row['sexo'];?></td>
+    <th>Patient Age</th>
+    <td><?php  echo $row['edad'];?></td>
+  </tr>
+  <tr>
+    
+ 
+ 
+<?php }?>
+</table>
+			<div class="app-content">
 					<?php include('include/header.php');?>
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content" >
@@ -39,16 +72,9 @@ check_login();
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Patients  | Appointment History</h1>
+									<h1 class="mainTitle">Pacientes | Historial de citas</h1>
 																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>Patients </span>
-									</li>
-									<li class="active">
-										<span>Appointment History</span>
-									</li>
-								</ol>
+							
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
@@ -65,20 +91,20 @@ check_login();
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th class="hidden-xs">Doctor Name</th>
-												<th>Patient Name</th>
-												<th>Specialization</th>
-												<th>Consultancy Fee</th>
-												<th>Appointment Date / Time </th>
-												<th>Appointment Creation Date  </th>
-												<th>Current Status</th>
-												<th>Action</th>
+												<th class="hidden-xs">Doctor/a</th>
+												<th>Paciente</th>
+												<th>Especialización</th>
+												<th>Cuota de consultoría/th>
+												<th>Cita Fecha / Hora</th>
+												
+												<th>Estado actual</th>
+												<th>Acción</th>
 												
 											</tr>
 										</thead>
 										<tbody>
 <?php
-$sql=mysqli_query($con,"select doctors.doctorName as docname,users.fullName as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
+$sql=mysqli_query($con,"select doctors.doctor_nombre as Pacientes,users.nombre_completo as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -86,27 +112,27 @@ while($row=mysqli_fetch_array($sql))
 
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
-												<td class="hidden-xs"><?php echo $row['docname'];?></td>
+												<td class="hidden-xs"><?php echo $row['Pacientes'];?></td>
 												<td class="hidden-xs"><?php echo $row['pname'];?></td>
-												<td><?php echo $row['doctorSpecialization'];?></td>
-												<td><?php echo $row['consultancyFees'];?></td>
-												<td><?php echo $row['appointmentDate'];?> / <?php echo
-												 $row['appointmentTime'];?>
+												<td><?php echo $row['doctorEspecializacion'];?></td>
+												<td><?php echo $row['precio'];?></td>
+												<td><?php echo $row['dia_cita'];?> / <?php echo
+												 $row['hora_cita'];?>
 												</td>
-												<td><?php echo $row['postingDate'];?></td>
+												
 												<td>
-<?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+<?php if(($row['usuario_estatus']==1) && ($row['doctor_estatus']==1))  
 {
-	echo "Active";
+	echo "Activo";
 }
-if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+if(($row['usuario_estatus']==0) && ($row['doctor_estatus']==1))  
 {
-	echo "Cancel by Patient";
+	echo "Cancelar por paciente";
 }
 
-if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+if(($row['usuario_estatus']==1) && ($row['doctor_estatus']==0))  
 {
-	echo "Cancel by Doctor";
+	echo "Cancelar por el doctor/a";
 }
 
 
@@ -114,11 +140,11 @@ if(($row['userStatus']==1) && ($row['doctorStatus']==0))
 												?></td>
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+							<?php if(($row['usuario_estatus']==1) && ($row['doctor_estatus']==1))  
 { 
 
 													
-echo "No Action yet";
+echo "Sin acción todavía";
 	 } else {
 
 		echo "Canceled";

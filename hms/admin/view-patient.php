@@ -114,7 +114,7 @@ $ret=mysqli_query($con,"select * from historia_medica  where 	Id_paciente='$vid'
  ?>
 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
   <tr align="center">
-   <th colspan="8" >Medical History</th> 
+   <th colspan="8" >Medical historia</th> 
   </tr>
   <tr>
     <th>#</th>

@@ -113,14 +113,7 @@ return true;
 									<input type="password" class="form-control"  id="password_again" name="password_again" placeholder="Password Again" required>
 									<i class="fa fa-lock"></i> </span>
 							</div>
-							<div class="form-group">
-								<div class="checkbox clip-check check-primary">
-									<input type="checkbox" id="agree" value="agree" checked="true" readonly=" true">
-									<label for="agree">
-										I agree
-									</label>
-								</div>
-							</div>
+
 							<div class="form-actions">
 								<p>
 								¿Ya tienes una cuenta?
