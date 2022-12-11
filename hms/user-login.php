@@ -83,9 +83,7 @@ exit();
 								<span class="input-icon">
 									<input type="password" class="form-control password" name="password" placeholder="Password">
 									<i class="fa fa-lock"></i>
-									 </span><a href="forgot-password.php">
-									 Has olvidado tu contraseña ?
-								</a>
+									
 							</div>
 							<div class="form-actions">
 								
@@ -102,9 +100,7 @@ exit();
 						</fieldset>
 					</form>
 
-					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>Reservados todos los derechos</span>
-					</div>
+					
 			
 				</div>
 

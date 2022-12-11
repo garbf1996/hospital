@@ -44,14 +44,6 @@ check_login();
 								<div class="col-sm-8">
 									<h1 class="mainTitle">Usuario | Tablero</h1>
 																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>Uusario</span>
-									</li>
-									<li class="active">
-										<span>Tablero</span>
-									</li>
-								</ol>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
@@ -115,12 +107,6 @@ check_login();
 			</div>
 			<!-- start: FOOTER -->
 	<?php include('include/footer.php');?>
-			<!-- end: FOOTER -->
-		
-			<!-- start: SETTINGS -->
-	<?php include('include/setting.php');?>
-			<>
-			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->
 		<script src="vendor/jquery/jquery.min.js"></script>
