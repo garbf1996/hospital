@@ -94,7 +94,7 @@ while ($row=mysqli_fetch_array($ret)) {
 												<th class="hidden-xs">Doctor/a</th>
 												<th>Paciente</th>
 												<th>Especialización</th>
-												<th>Cuota de consultoría/th>
+												<th>Cuota de consultoría</th>
 												<th>Cita Fecha / Hora</th>
 												
 												<th>Estado actual</th>
@@ -104,7 +104,7 @@ while ($row=mysqli_fetch_array($ret)) {
 										</thead>
 										<tbody>
 <?php
-$sql=mysqli_query($con,"select doctors.doctor_nombre as Pacientes,users.nombre_completo as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
+$sql=mysqli_query($con,"select doctors.doctor_nombre as doctor,users.nombre_completo as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -112,7 +112,7 @@ while($row=mysqli_fetch_array($sql))
 
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
-												<td class="hidden-xs"><?php echo $row['Pacientes'];?></td>
+												<td class="hidden-xs"><?php echo $row['doctor'];?></td>
 												<td class="hidden-xs"><?php echo $row['pname'];?></td>
 												<td><?php echo $row['doctorEspecializacion'];?></td>
 												<td><?php echo $row['precio'];?></td>

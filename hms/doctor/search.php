@@ -37,16 +37,9 @@ check_login();
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Doctor | Manage Patients</h1>
+<h1 class="mainTitle">DOCTOR | GESTIONAR PACIENTES</h1>
 </div>
-<ol class="breadcrumb">
-<li>
-<span>Doctor</span>
-</li>
-<li class="active">
-<span>Manage Patients</span>
-</li>
-</ol>
+
 </div>
 </section>
 <div class="container-fluid container-fullw bg-white">
@@ -56,13 +49,13 @@ check_login();
 
 <div class="form-group">
 <label for="doctorname">
-Search by Name/Mobile No.
+Buscar por nombre/número de móvil
 </label>
 <input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
 </div>
 
 <button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
-Search
+Buscar
 </button>
 </form>	
 <?php
@@ -71,7 +64,7 @@ if(isset($_POST['search']))
 
 $sdata=$_POST['searchdata'];
   ?>
-<h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
+<h4 align="center">Resultado en contra "<?php echo $sdata;?>" palabra clave </h4>
 
 <table class="table table-hover" id="sample-table-1">
 <thead>

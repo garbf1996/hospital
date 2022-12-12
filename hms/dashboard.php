@@ -29,6 +29,7 @@ check_login();
 
 	</head>
 	<body>
+	
 		<div id="app">		
 <?php include('include/sidebar.php');?>
 			<div class="app-content">
@@ -42,8 +43,16 @@ check_login();
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Usuario | Tablero</h1>
+									<h1 class="mainTitle">Doctor | Dashboard</h1>
 																	</div>
+								<ol class="breadcrumb">
+									<li>
+										<span>User</span>
+									</li>
+									<li class="active">
+										<span>Dashboard</span>
+									</li>
+								</ol>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->

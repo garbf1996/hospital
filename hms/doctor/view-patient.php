@@ -15,14 +15,14 @@ if(isset($_POST['submit']))
    $pres=$_POST['pres'];
    
  
-      $query.=mysqli_query($con, "insert   historia_medica(Id_paciente,tipo_sangre,peso,temperatuta,altura,fecha_creacion)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+      $query.=mysqli_query($con, "insert   historia_medica ( Id_paciente,tipo_sangre,peso,temperatuta,altura)value('$vid','$bp','$bs','$weight','$temp')");
     if ($query) {
-    echo '<script>alert("Medicle history has been added.")</script>';
+    echo '<script>alert("Se ha añadido el historial médico.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
   }
   else
     {
-      echo '<script>alert("Something Went Wrong. Please try again")</script>';
+      echo '<script>alert("Algo salió mal. Inténtalo de nuevo")</script>';
     }
 
   
@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>médico | Administrar pacientes</title>
+		<title>Doctor | Manage Patients</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -60,13 +60,15 @@ if(isset($_POST['submit']))
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">médico | Administrar pacientes</h1>
+<h1 class="mainTitle">Doctor | Manage Patients</h1>
 </div>
+
 </div>
 </section>
 <div class="container-fluid container-fullw bg-white">
 <div class="row">
 <div class="col-md-12">
+
 <?php
                                $vid=$_GET['viewid'];
                                $ret=mysqli_query($con,"select * from paciente where ID='$vid'");
@@ -77,9 +79,8 @@ while ($row=mysqli_fetch_array($ret)) {
  <tr align="center">
 <td colspan="4" style="font-size:20px;color:blue">
 Detalles de la paciente</td></tr>
-
  <tr>
-    <th scope>Nombre</th>
+    <th scope>Paciente</th>
     <td><?php  echo $row['nombre_completo'];?></td>
     <th scope>Email</th>
     <td><?php  echo $row['email'];?></td>
@@ -98,6 +99,8 @@ Detalles de la paciente</td></tr>
     <td><?php  echo $row['Dirrecion'];?></td>
   </tr>
   <tr>
+    
+
  
 <?php }?>
 </table>
@@ -109,8 +112,11 @@ $ret=mysqli_query($con,"select * from historia_medica  where Id_paciente='$vid'"
 
  ?>
 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-
-  <th>#</th>
+  <tr align="center">
+   <th colspan="8" >Medical History</th> 
+  </tr>
+  <tr>
+    <th>#</th>
 <thSugar>Historias</thSugar>
 <th>Tipo sangre </th>
 <th>Temperatura</th>
@@ -128,7 +134,7 @@ while ($row=mysqli_fetch_array($ret)) {
  <td><?php  echo $row['temperatuta'];?></td> 
   <td><?php  echo $row['altura'];?></td>
   <td><?php  echo $row['fecha_creacion'];?></td>
-
+ 
 </tr>
 <?php $cnt=$cnt+1;} ?>
 </table>
@@ -141,7 +147,7 @@ while ($row=mysqli_fetch_array($ret)) {
   <div class="modal-dialog" role="document">
      <div class="modal-content">
       <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar historial médico</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Add Medical History</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -152,24 +158,24 @@ while ($row=mysqli_fetch_array($ret)) {
                                  <form method="post" name="submit">
 
       <tr>
-    <th>	Tipo sangre:</th>
+    <th>Tipo sangre:</th>
     <td>
-    <input name="bp" placeholder="Tipo sangre" class="form-control wd-450" required="true"></td>
+    <input name="bp" " class="form-control wd-450" required="true"></td>
   </tr>                          
      <tr>
-    <th>	Temperatura:</th>
+    <th>Temperatura:</th>
     <td>
-    <input name="bs" placeholder="Temperatura" class="form-control wd-450" required="true"></td>
+    <input name="bs"  class="form-control wd-450" required="true"></td>
   </tr> 
   <tr>
     <th>Peso:</th>
     <td>
-    <input name="weight" placeholder="Weight" class="form-control wd-450" required="true"></td>
+    <input name="weight"" class="form-control wd-450" required="true"></td>
   </tr>
   <tr>
     <th>Altura:</th>
     <td>
-    <input name="temp" placeholder="Altura" class="form-control wd-450" required="true"></td>
+    <input name="temp" class="form-control wd-450" required="true"></td>
   </tr>
                          
 
@@ -177,8 +183,8 @@ while ($row=mysqli_fetch_array($ret)) {
 </table>
 </div>
 <div class="modal-footer">
- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerca</button>
- <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ <button type="submit" name="submit" class="btn btn-primary">Submit</button>
   
   </form>
 </div>
