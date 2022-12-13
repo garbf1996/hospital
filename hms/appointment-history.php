@@ -64,7 +64,7 @@ if(isset($_GET['cancel']))
 												<th class="center">#</th>
 												<th class="hidden-xs">Nombre del médico</th>
 												<th>Especializacion</th>
-												<th>Cuota de consultoría</th>
+												<th>Cuota de consultorío</th>
 												<th>Cita Fecha / Hora</th>
 												<th>Fecha de creación de la cita  </th>
 												<th>Estado actual</th>
